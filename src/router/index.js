@@ -17,6 +17,16 @@ const routes = [
     name: 'product_details',
     component: () => import("@/views/ProductDetails")
   },
+  {
+    path: '/cart-page',
+    name: 'cart_page',
+    component: () => import("@/views/CartPage")
+  },
+  {
+    path: '/checkout',
+    name: 'check_out',
+    component: () => import("@/views/CheckOut")
+  },
 ]
 
 const router = createRouter({

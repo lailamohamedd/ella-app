@@ -3,17 +3,17 @@
     <v-footer color="grey-lighten-4" class="pt-14" :app="true" absolute>
       <v-container fluid>
          <v-row>
-            <v-col cols="3">
+            <v-col cols="12" lg="3" md="6">
                <v-card elevation="0" color="transparent">
-                  <v-card-title style="font-size: 14px; font-weight: 900;">SHOP</v-card-title>
+                  <v-card-title>SHOP</v-card-title>
                   <v-card-text v-for="category in categories" :key="category.title">
-                     <router-link :to="{ name: 'products_category', params: {category: category.route, title: category.title } }" style="text-decoration: none;">{{ category.title }}</router-link>
+                     <router-link class="text-decoration-none" :to="{ name: 'products_category', params: {category: category.route, title: category.title } }">{{ category.title }}</router-link>
                   </v-card-text>
                </v-card>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="12" lg="3" md="6">
                <v-card elevation="0" color="transparent">
-                  <v-card-title style="font-size: 14px; font-weight: 900;">FUTURE INFO</v-card-title>
+                  <v-card-title>FUTURE INFO</v-card-title>
                   <v-card-text>About</v-card-text>
                   <v-card-text>Customer Service</v-card-text>
                   <v-card-text>Smartphones & Tablets</v-card-text>
@@ -23,9 +23,9 @@
                   <v-card-text>Weekly Special</v-card-text>
                </v-card>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="12" lg="3" md="6">
                <v-card elevation="0" color="transparent">
-                  <v-card-title style="font-size: 14px; font-weight: 900;">CUSTOMER SERVICE</v-card-title>
+                  <v-card-title>CUSTOMER SERVICE</v-card-title>
                   <v-card-text>About</v-card-text>
                   <v-card-text>Customer Service</v-card-text>
                   <v-card-text>Smartphones & Tablets</v-card-text>
@@ -35,11 +35,11 @@
                   <v-card-text>Weekly Special</v-card-text>
                </v-card>
             </v-col>
-            <v-col cols="3" class="pt-8">
+            <v-col cols="12" lg="3" md="6" class="pt-8">
                <v-card elevation="0" color="transparent">
-                  <img src="@/assets/images/footer-logo.webp" @click="$router.push({ name: 'home' })" style="cursor: pointer;" alt="">
-                  <v-card-title style="font-size: 14px; font-weight: 900;">CUSTOMER SERVICE</v-card-title>
-                  <v-card-text class="px-0 pt-0 pb-3" style="gap: 16px;">
+                  <img src="@/assets/images/footer-logo.webp" class="cursor-pointer" @click="$router.push({ name: 'home' })" alt="logo" />
+                  <v-card-title>CUSTOMER SERVICE</v-card-title>
+                  <v-card-text class="px-0 gap-16 pt-0 pb-3">
                      <span class="pt-1">
                         <svg fill="#686868" xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 384 512">
                            <path d="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z"></path>
@@ -47,49 +47,49 @@
                      </span>
                      <span> 656 Market Street, San... 941105,US</span>
                   </v-card-text>
-                  <v-card-text class="px-0 pt-0 pb-3" style="gap: 16px;">
+                  <v-card-text class="px-0 gap-16 pt-0 pb-3">
                      <span>
                         <svg fill="#686868" aria-hidden="true" width="12" focusable="false" data-prefix="fas" data-icon="phone-alt" role="img" viewBox="0 0 512 512" class="svg-inline--fa fa-phone-alt fa-w-16 fa-7x"><path fill="currentColor" d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z" class=""></path></svg>
                      </span>
                      <span> Call us at (415) 555 - 5555 - 55555</span>
                   </v-card-text>
-                  <v-card-text class="px-0 pt-0 pb-3" style="gap: 16px;">
+                  <v-card-text class="px-0 pt-0 gap-16 pb-3">
                      <span>
                         <svg fill="#686868" width="12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-envelope fa-w-16 fa-7x"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" class=""></path></svg>
                      </span>
                      <span> ex@domain.com</span>
                   </v-card-text>
                </v-card>
-               <div class="social d-flex mt-5" style="gap: 16px;">
+               <div class="social gap-16 d-flex mt-5">
                   <span class="social-links d-flex align-center justify-center">
-                     <svg width="9" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon icon-facebook"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                     <i class="fa fa-facebook"></i>
                   </span>
                   <span class="social-links d-flex align-center justify-center">
-                     <svg width="9" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon icon-facebook"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                     <i class="fa fa-instagram"></i>
                   </span>
                   <span class="social-links d-flex align-center justify-center">
-                     <svg width="9" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon icon-facebook"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                     <i class="fa fa-whatsapp"></i>
                   </span>
                   <span class="social-links d-flex align-center justify-center">
-                     <svg width="9" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon icon-facebook"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                     <i class="fa fa-linkedin"></i>
                   </span>
                   <span class="social-links d-flex align-center justify-center">
-                     <svg width="9" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon icon-facebook"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                     <i class="fa fa-youtube"></i>
                   </span>
                </div>
             </v-col>
             <v-col cols="12">
                <div class="img-parent text-center mt-11 mb-8">
-                  <img src="" alt="">
+                  <img src="@/assets/images/cart-page-cards.webp" width="270" alt="cart images">
                </div>
             </v-col>
          </v-row>
          <v-row class="pt-7 bg-white">
             <v-col cols="6">
-               <p style="color: #444; font-size: 14px;">&copy; {{ new Date().getFullYear() }} Ella Demo. All Rights Reversed. Powered By Ella</p>
+               <p class="copyright">&copy; {{ new Date().getFullYear() }} Ella Demo. All Rights Reversed. Powered By Ella</p>
             </v-col>
             <v-col cols="6">
-               <div class="master-cards d-flex justify-end" style="gap: 10px;">
+               <div class="master-cards d-flex justify-end">
                   <span v-for="(svg, i) in svgs" :key="i" v-html="svg"></span>
                </div>
             </v-col>
@@ -119,12 +119,27 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.master-cards {
+   gap: 10px !important;
+}
+.gap-16 {
+   gap: 16px !important;
+}
+.copyright {
+   color: #444; 
+   font-size: 14px;
+}
+.text-decoration-none {
+   text-decoration: none !important;
+}
 .v-card-title,.v-card-text {
    padding-left: 0;
    padding-right: 0;
 }
 .v-card-title {
    margin-bottom: 17px;
+   font-size: 14px; 
+   font-weight: 900;
 }
 .v-card-text {
    padding-top: 0 !important;
@@ -138,8 +153,8 @@ export default {
    height: 40px;
    background-color: #686868;
    border-radius: 50%;
-   svg {
-      fill: #fff;
+   i {
+      color: #f8f8f8 !important;
    }
 }
 </style>

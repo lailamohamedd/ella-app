@@ -15,11 +15,11 @@ export const cartStore = defineStore("cartStore", {
                 }
             }
             if(!exists) {
-                this.cartItems.push(JSON.parse(JSON.stringify(this.cartItems)));
+                this.cartItems.push(JSON.parse(JSON.stringify(item)));
             }
             
             localStorage.setItem("cart-items", JSON.stringify(this.cartItems));
-            console.log(this.cartItems);
+            // console.log(this.cartItems);
         },
         getCartItems(){
             if(localStorage.getItem("cart-items")) {
@@ -33,6 +33,9 @@ export const cartStore = defineStore("cartStore", {
                     break;
                 }
             }
+            localStorage.setItem("cart-items", JSON.stringify(this.cartItems));
+        },
+        setToLocalStorage() {
             localStorage.setItem("cart-items", JSON.stringify(this.cartItems));
         }
     }

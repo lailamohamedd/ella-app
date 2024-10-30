@@ -5,7 +5,7 @@
     </div>
     <v-container fluid>
         <v-row>
-            <v-col cols="3">
+            <v-col cols="12" lg="3" md="6">
                 <v-card elevation="0" color="transparent" class="text-center text-white">
                     <div class="img-parent">
                         <img src="@/assets/images/free-shipping.png" alt="">
@@ -15,7 +15,7 @@
                     <a href="#" style="color: #fff; font-weight: 700; font-size: 14px">Learn More</a>
                 </v-card>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="12" lg="3" md="6">
                 <v-card elevation="0" color="transparent" class="text-center text-white">
                     <div class="img-parent">
                         <img src="@/assets/images/weekly-flash-sales.png" alt="">
@@ -25,7 +25,7 @@
                     <a href="#" style="color: #fff; font-weight: 700; font-size: 14px">Learn More</a>
                 </v-card>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="12" lg="3" md="6">
                 <v-card elevation="0" color="transparent" class="text-center text-white">
                     <div class="img-parent">
                         <img src="@/assets/images/discount.png" alt="">
@@ -35,7 +35,7 @@
                     <a href="#" style="color: #fff; font-weight: 700; font-size: 14px">Learn More</a>
                 </v-card>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="12" lg="3" md="6">
                 <v-card elevation="0" color="transparent" class="text-center text-white">
                     <div class="img-parent">
                         <img src="@/assets/images/cash-back.png" alt="">

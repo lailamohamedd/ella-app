@@ -18,8 +18,8 @@
     <Swiper 
       :pagination="{ el: '.swiper-pagination', clickable: true }" 
       :modules="modules"
-      :slides-per-view="4"
-      :space-between="35"
+      :slides-per-view="5"
+      :space-between="25"
       class="pb-9 px-5"
       :navigation="{prevIcon: 'swiper-prev', nextIcon: 'swiper-next'}"
       :autoplay="{ delay: 3000 }"

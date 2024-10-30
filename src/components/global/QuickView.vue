@@ -1,11 +1,11 @@
 <template>
     <div class="quick-view mt-16">
-        <v-dialog v-model="dialog" max-width="900" max-height="500">
-            <v-icon @click="dialog = false" style="position: absolute; right: 20px; top: -20px; background-color: black; color: white; font-size: 18px; padding: 13px; z-index: 10;">mdi-close</v-icon>
+        <v-dialog v-model="dialog" max-width="900">
+            <v-icon @click="dialog = false" style="position: absolute; right: -20px; top: -27px; color: white; font-size: 29px; padding: 13px; z-index: 10;">mdi-close</v-icon>
             <v-card class="content-card" elevation="0">
                 <v-container fluid class="bg-white pt-10">
                     <v-row>
-                        <v-col cols="7">
+                        <v-col cols="12" lg="7">
                             <img :src="tab ? tab : product.thumbnail" v-if="!loading" height="400" class="w-100" alt="product image">
                             <v-skeleton-loader v-if="loading" type="image, image, image"></v-skeleton-loader>
                             <v-tabs center-active height="130" class="mt-10" v-model="tab">
@@ -14,7 +14,7 @@
                                 </v-tab>
                             </v-tabs>
                         </v-col>
-                        <v-col cols="5" class="pt-0 pl-6">
+                        <v-col cols="12" lg="5" class="pt-0 pl-6">
                             <v-skeleton-loader v-if="loading" type="article, article, article"></v-skeleton-loader>
                             <v-card elevation="0">
                                 <v-card-title class="px-0" style="font-size: 19px; font-weight: bold; white-space: pre-wrap;">
@@ -39,9 +39,9 @@
                                 </v-card-text>
                                 <v-card-text class="pl-0 pt-0">Quantity</v-card-text>
                                 <div class="counter px-1" style="border-radius: 30px; border: 1px solid #454545; width: fit-content;">
-                                    <v-icon size="22" @click="quantity > 1 ? quantity-- : false">mdi-minus</v-icon>
-                                    <input type="number" class="text-center py-3" style="border: none; outline: none; width: 60px; font-size: 15px;" min="1" v-model="quantity" />
-                                    <v-icon size="22" @click="quantity++">mdi-plus</v-icon>
+                                    <v-icon size="18" @click="quantity > 1 ? quantity-- : false">mdi-minus</v-icon>
+                                    <input type="number" class="text-center py-1" style="border: none; outline: none; width: 60px; font-size: 15px;" min="1" v-model="quantity" />
+                                    <v-icon size="18" @click="quantity++">mdi-plus</v-icon>
                                 </div>
                                 <v-card-text class="pl-0">
                                     Subtotal: ${{ 

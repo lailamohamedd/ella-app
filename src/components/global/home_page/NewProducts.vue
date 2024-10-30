@@ -6,18 +6,18 @@
     </div>
     <v-container fluid>
         <v-row>
-            <v-col cols="7" class="pt-14" v-if="!products.length">
+            <v-col cols="12" lg="7" class="pt-14" v-if="!products.length">
                 <v-row>
                     <v-col cols="4" v-for="num in 3" :key="num">
                         <v-skeleton-loader type="image, article, button"></v-skeleton-loader>
                     </v-col>
                 </v-row>
             </v-col>
-            <v-col cols="7" class="pt-14" v-else>
+            <v-col cols="12" lg="7" class="pt-14" v-else>
                 <Swiper 
                     :pagination="{ el: '.swiper-pagination', clickable: true }" 
                     :modules="modules"
-                    :slides-per-view="3"
+                    :slides-per-view="4"
                     :space-between="20"
                     class="pb-9 px-5"
                     >
@@ -68,7 +68,7 @@
                         </Swiper-slide>
                 </Swiper>
             </v-col>
-            <v-col cols="5">
+            <v-col cols="12" lg="5">
                 <img src="@/assets/images/vr-banner.webp" class="w-100" alt="product image" />
             </v-col>
         </v-row>

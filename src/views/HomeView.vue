@@ -10,16 +10,16 @@
     <ProductsSwiper :products="fragrances" title="Top fragrances" titleColor="black" />
     <v-container fluid>
       <v-row>
-        <v-col cols="6" class="pr-5">
-          <img src="@/assets/images/band-left-cover.webp" width="100%" alt="">
+        <v-col lg="6" md="6" cols="12" class="pr-lg-5">
+          <img src="@/assets/images/band-left-cover.webp" class="w-100" alt="banner cover image" />
         </v-col>
-        <v-col cols="6" class="pl-5">
-          <img src="@/assets/images/band-right-cover.webp" width="100%" alt="">
+        <v-col lg="6" md="6" cols="12" class="pl-lg-5">
+          <img src="@/assets/images/band-right-cover.webp" class="w-100" alt="banner cover image" />
         </v-col>
       </v-row>
     </v-container>
     <ProductsSwiper :products="furniture" title="Top furniture" titleColor="black" />
-    <img src="@/assets/images/tv-banner.webp" width="100%" alt="">
+    <img src="@/assets/images/tv-banner.webp" class="w-100" alt="banner image">
     <ProductsSwiper :products="groceries" title="Top groceries" titleColor="black" />
     <WhyShopwithus />
   </div>

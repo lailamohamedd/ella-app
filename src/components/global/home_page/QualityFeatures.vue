@@ -2,18 +2,17 @@
 <div class="quality-features py-13 bg-grey-lighten-2">
     <v-container fluid>
         <v-row>
-            <v-col md="3" v-for="card in cards" :key="card.title" class="px-2">
+            <v-col lg="3" md="3" cols="12" v-for="card in cards" :key="card.title" class="px-2">
                 <v-hover v-slot="{ isHovering, props }">
                     <v-card 
                       v-bind="props"
-                      class="text-center d-flex align-center justify-center px-4" 
+                      class="text-center d-flex align-center justify-center cursor-pointer px-4" 
                       height="300" 
                       :elevation="isHovering ? 2 : 0"
-                      :color="isHovering ? 'blue-lighten-4' : 'white'"
-                      style="cursor: pointer;">
+                      :color="isHovering ? 'blue-lighten-4' : 'white'">
                         <div class="parent">
                             <span v-html="card.svg"></span>
-                            <v-card-title style="font-weight: 700; text-transform: uppercase; font-size: 16px;">{{ card.title }}</v-card-title>
+                            <v-card-title class="card-title">{{ card.title }}</v-card-title>
                             <p>{{ card.desc }}</p>
                         </div>
                     </v-card>
@@ -48,12 +47,15 @@ export default {
                 desc: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
                 svg: `<svg aria-hidden="true" style="width: 60px" focusable="false" data-prefix="fas" data-icon="shield-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-shield-alt fa-w-16 fa-3x"><defs><linearGradient id="logo-gradient" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#6423d1">                              </stop><stop offset="100%" stop-color="#a215e1">                           </stop></linearGradient></defs><path fill="url('#logo-gradient')" d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z" class=""></path></svg>`
             },
-            // {
-            //     title: "have questions?",
-            //     desc: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
-            //     svg: `<svg aria-hidden="true" style="width: 60px" focusable="false" data-prefix="fas" data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-question-circle fa-w-16 fa-3x"><defs><linearGradient id="logo-gradient" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#6423d1">                              </stop><stop offset="100%" stop-color="#a215e1">                           </stop></linearGradient></defs><path fill="url('#logo-gradient')" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z" class=""></path></svg>`
-            // },
         ]
     })
 }
 </script>
+
+<style scoped>
+.card-title {
+    font-weight: 700; 
+    text-transform: uppercase; 
+    font-size: 16px;
+}
+</style>
