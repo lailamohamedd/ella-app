@@ -1,6 +1,11 @@
 <template>
 <div class="menu_drawer">
-    <v-navigation-drawer temporary v-model="drawer" width="370" class="px-5 pt-0">
+    <v-navigation-drawer 
+        temporary 
+        v-model="drawer" 
+        :width="windowWidth <= 767 ? windowWidth / 2 : 370"
+        class="px-5 pt-0"
+    >
         <v-card class="px-0" elevation="0">
             <v-card-title class="px-0 d-flex justify-space-between align-center w-100" style="font-size: 17px; font-weight: bold;">
                 Menu
@@ -8,17 +13,25 @@
             </v-card-title>
             <v-divider length="100%" color="black"></v-divider>
             <v-list>
-                <v-list-item class="px-0" v-for="cat in categories" :key="cat.route" @click="$router.push({ name: 'products_category', query: { title: cat.title, category: cat.route },})">
-                    <v-list-item-title> {{ cat.title }}</v-list-item-title>
+                <v-list-item 
+                    class="px-0" 
+                    v-for="cat in categories" 
+                    :key="cat.route" 
+                    @click="$router.push({ 
+                        name: 'products_category', 
+                        query: { title: cat.title, category: cat.route },
+                    })"
+                >
+                    <v-list-item-title class="nav-link"> {{ cat.title }}</v-list-item-title>
                 </v-list-item>
                 <v-list-group> 
                     <template v-slot:activator="{ props }">
                         <v-list-item v-bind="props" class="px-0">
-                            <v-list-item-title>Languages</v-list-item-title>
+                            <v-list-item-title class="nav-link">Languages</v-list-item-title>
                         </v-list-item>
                     </template>
                     <v-list-item>
-                        <v-list-item-title class="d-flex align-center cursor-pointer" style="gap: 7px;">
+                        <v-list-item-title class="d-flex nav-link align-center cursor-pointer" style="gap: 7px;">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" 
                             style="enable-background:new 0 0 512 512; width: 20px;" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
                             >
@@ -45,7 +58,7 @@
                         </v-list-item-title>
                     </v-list-item>
                     <v-list-item>
-                        <v-list-item-title class="d-flex align-center cursor-pointer" style="gap: 7px;">
+                        <v-list-item-title class="d-flex nav-link align-center cursor-pointer" style="gap: 7px;">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512; width: 20px;" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
                                 <path style="fill:#FFDA44;" d="M15.923,345.043C52.094,442.527,145.929,512,256,512s203.906-69.473,240.077-166.957L256,322.783  L15.923,345.043z"></path>
                                 <path d="M256,0C145.929,0,52.094,69.472,15.923,166.957L256,189.217l240.077-22.261C459.906,69.472,366.071,0,256,0z"></path>
@@ -71,6 +84,11 @@ export default {
             drawer: false,
         }
     },
+    props: {
+        windowWidth: {
+            type: Number
+        },
+    },
     inject: ["Emitter"],
     mounted() {
         this.Emitter.on("openMenu", () => {
@@ -83,3 +101,12 @@ export default {
     },
 }
 </script>
+
+<style scoped lang="scss">
+// Media Queries
+@media (max-width: 580px) {
+    .nav-link {
+        font-size: 12px;
+    }
+}
+</style>

@@ -1,17 +1,29 @@
 <template>
  <div class="app-footer">
-    <v-footer color="grey-lighten-4" class="pt-14" :app="true" absolute>
+    <v-footer color="grey-lighten-4 d-block" class="pt-14" :app="true" absolute>
       <v-container fluid>
          <v-row>
-            <v-col cols="12" lg="3" md="6">
+            <v-col cols="12" lg="3" md="4" sm="6">
                <v-card elevation="0" color="transparent">
-                  <v-card-title>SHOP</v-card-title>
-                  <v-card-text v-for="category in categories" :key="category.title">
-                     <router-link class="text-decoration-none" :to="{ name: 'products_category', params: {category: category.route, title: category.title } }">{{ category.title }}</router-link>
+                  <v-card-title class="px-0">SHOP</v-card-title>
+                  <v-card-text 
+                     v-for="category in categories" 
+                     :key="category.title"
+                  >
+                     <router-link 
+                        class="text-decoration-none"
+                        :to="{ 
+                           name: 'products_category', 
+                           query: { 
+                              category: category.route, 
+                              title: category.title 
+                           },
+                        }"
+                     >{{ category.title }}</router-link>
                   </v-card-text>
                </v-card>
             </v-col>
-            <v-col cols="12" lg="3" md="6">
+            <v-col cols="12" lg="3" md="4" sm="6">
                <v-card elevation="0" color="transparent">
                   <v-card-title>FUTURE INFO</v-card-title>
                   <v-card-text>About</v-card-text>
@@ -23,7 +35,7 @@
                   <v-card-text>Weekly Special</v-card-text>
                </v-card>
             </v-col>
-            <v-col cols="12" lg="3" md="6">
+            <v-col cols="12" lg="3" md="4" sm="6">
                <v-card elevation="0" color="transparent">
                   <v-card-title>CUSTOMER SERVICE</v-card-title>
                   <v-card-text>About</v-card-text>
@@ -35,11 +47,18 @@
                   <v-card-text>Weekly Special</v-card-text>
                </v-card>
             </v-col>
-            <v-col cols="12" lg="3" md="6" class="pt-8">
+            <v-col  cols="12" lg="3" md="4" sm="6" class="pt-8">
                <v-card elevation="0" color="transparent">
-                  <img src="@/assets/images/footer-logo.webp" class="cursor-pointer" @click="$router.push({ name: 'home' })" alt="logo" />
-                  <v-card-title>CUSTOMER SERVICE</v-card-title>
-                  <v-card-text class="px-0 gap-16 pt-0 pb-3">
+                  <!-- Start logo -->
+                  <img 
+                     src="@/assets/images/footer-logo.webp" 
+                     class="cursor-pointer" 
+                     @click="$router.push({ name: 'home' })" 
+                     alt="logo" 
+                  />
+                  <!-- End logo -->
+                  <!-- <v-card-title>CUSTOMER SERVICE</v-card-title> -->
+                  <v-card-text class="px-0 d-flex justify-start justify-sm-center">
                      <span class="pt-1">
                         <svg fill="#686868" xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 384 512">
                            <path d="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z"></path>
@@ -51,50 +70,58 @@
                      <span>
                         <svg fill="#686868" aria-hidden="true" width="12" focusable="false" data-prefix="fas" data-icon="phone-alt" role="img" viewBox="0 0 512 512" class="svg-inline--fa fa-phone-alt fa-w-16 fa-7x"><path fill="currentColor" d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z" class=""></path></svg>
                      </span>
-                     <span> Call us at (415) 555 - 5555 - 55555</span>
+                     <span> Call us at (20) 01144302722</span>
                   </v-card-text>
                   <v-card-text class="px-0 pt-0 gap-16 pb-3">
                      <span>
                         <svg fill="#686868" width="12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-envelope fa-w-16 fa-7x"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" class=""></path></svg>
                      </span>
-                     <span> ex@domain.com</span>
+                     <span> lailamohammed2023@gmail.com</span>
                   </v-card-text>
                </v-card>
                <div class="social gap-16 d-flex mt-5">
-                  <span class="social-links d-flex align-center justify-center">
-                     <i class="fa fa-facebook"></i>
-                  </span>
-                  <span class="social-links d-flex align-center justify-center">
-                     <i class="fa fa-instagram"></i>
-                  </span>
-                  <span class="social-links d-flex align-center justify-center">
-                     <i class="fa fa-whatsapp"></i>
-                  </span>
-                  <span class="social-links d-flex align-center justify-center">
-                     <i class="fa fa-linkedin"></i>
-                  </span>
-                  <span class="social-links d-flex align-center justify-center">
-                     <i class="fa fa-youtube"></i>
-                  </span>
+                  <a 
+                     v-for="social in socials" 
+                     :key="social.icon" 
+                     :href="social.link" 
+                     target="_blank" 
+                     class="social-links d-flex align-center justify-center"
+                  >
+                     <i class="fa " :class="social.icon"></i>
+                     <v-tooltip
+                     activator="parent"
+                     location="top"
+                     >{{ social.tooltip }}</v-tooltip>
+                  </a>
                </div>
             </v-col>
-            <v-col cols="12">
-               <div class="img-parent text-center mt-11 mb-8">
-                  <img src="@/assets/images/cart-page-cards.webp" width="270" alt="cart images">
-               </div>
-            </v-col>
-         </v-row>
-         <v-row class="pt-7 bg-white">
-            <v-col cols="6">
-               <p class="copyright">&copy; {{ new Date().getFullYear() }} Ella Demo. All Rights Reversed. Powered By Ella</p>
-            </v-col>
-            <v-col cols="6">
-               <div class="master-cards d-flex justify-end">
-                  <span v-for="(svg, i) in svgs" :key="i" v-html="svg"></span>
+            <v-col cols="12" class="cards-img">
+               <div class="img-parent text-center mt-9 mb-6">
+                  <img 
+                     src="@/assets/images/cart-page-cards.webp" 
+                     width="270" 
+                     alt="cart images"
+                  />
                </div>
             </v-col>
          </v-row>
       </v-container>
+      <div class="bottom-footer text-center w-100">
+         <v-row class="bg-white">
+            <v-col cols="12" md="6">
+               <p class="copyright">&copy; {{ new Date().getFullYear() }} <a target="_blank" href="https://lailamohamedd.github.io/Laila/">Laila Mohamed</a></p>
+            </v-col>
+            <v-col cols="12" md="6">
+               <div class="master-cards d-flex justify-md-end justify-center">
+                  <span 
+                     v-for="(svg, i) in svgs" 
+                     :key="i" 
+                     v-html="svg"
+                  ></span>
+               </div>
+            </v-col>
+         </v-row>
+      </div>
     </v-footer>
  </div>
 </template>
@@ -111,6 +138,13 @@ export default {
          `<svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal"><title id="pi-paypal">PayPal</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"></path><path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"></path><path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"></path></svg>`,
          `<svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 38 24" width="38" height="24" aria-labelledby="pi-shopify_pay"><title id="pi-shopify_pay">Shop Pay</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32z" fill="#5A31F4"></path><path d="M21.382 9.713c0 1.668-1.177 2.858-2.821 2.858h-1.549a.133.133 0 00-.12.08.127.127 0 00-.01.049v2.192a.129.129 0 01-.13.129h-1.084a.13.13 0 01-.13-.13V6.986a.127.127 0 01.08-.12.129.129 0 01.05-.01h2.9c1.637 0 2.814 1.19 2.814 2.858v-.001zm-1.352 0c0-.958-.658-1.658-1.55-1.658h-1.468a.13.13 0 00-.13.13v3.05a.127.127 0 00.038.092.129.129 0 00.092.038h1.468c.892.005 1.55-.695 1.55-1.652zm1.674 3.791a1.527 1.527 0 01.647-1.317c.423-.316 1.084-.48 2.055-.514l1.033-.036v-.303c0-.607-.41-.863-1.068-.863-.658 0-1.075.231-1.17.61a.127.127 0 01-.125.09h-1.022a.13.13 0 01-.126-.092.125.125 0 01-.004-.055c.152-.898.904-1.58 2.494-1.58 1.692 0 2.303.783 2.303 2.276v3.172a.13.13 0 01-.132.129h-1.03a.13.13 0 01-.13-.13v-.236a.096.096 0 00-.061-.091.1.1 0 00-.107.022c-.31.334-.808.575-1.607.575-1.175 0-1.95-.607-1.95-1.657zm3.735-.687v-.246l-1.339.07c-.705.036-1.115.326-1.115.816 0 .444.376.69 1.034.69.893 0 1.42-.48 1.42-1.33zm2.316 4.6v-.919a.13.13 0 01.049-.1.132.132 0 01.108-.027c.158.029.318.044.479.044a1.229 1.229 0 001.245-.876l.067-.211a.133.133 0 000-.088l-2.145-5.471a.13.13 0 01.06-.165.13.13 0 01.062-.015h1.04a.132.132 0 01.123.085l1.456 3.859a.131.131 0 00.125.088.133.133 0 00.125-.088l1.265-3.848a.13.13 0 01.126-.09h1.076a.134.134 0 01.132.116.134.134 0 01-.008.063l-2.295 6.076c-.528 1.413-1.433 1.773-2.43 1.773a1.959 1.959 0 01-.561-.066.132.132 0 01-.1-.14h.001zM8.57 6.4a5.363 5.363 0 00-3.683 1.427.231.231 0 00-.029.31l.618.839a.236.236 0 00.362.028 3.823 3.823 0 012.738-1.11c2.12 0 3.227 1.584 3.227 3.15 0 1.7-1.163 2.898-2.835 2.921-1.292 0-2.266-.85-2.266-1.974a1.908 1.908 0 01.713-1.48.231.231 0 00.033-.324l-.65-.815a.236.236 0 00-.339-.034 3.43 3.43 0 00-.942 1.183 3.39 3.39 0 00-.337 1.47c0 1.935 1.655 3.452 3.775 3.464h.03c2.517-.032 4.337-1.884 4.337-4.415 0-2.247-1.667-4.64-4.752-4.64z" fill="#fff"></path></svg>`,
       ],
+      socials: [
+         {icon: 'fa-facebook', tooltip: 'facebook', link: 'https://web.facebook.com/profile.php?id=100028147566924&_rdc=1&_rdr'},
+         {icon: 'fa-instagram', tooltip: 'instagram', link: 'https://www.instagram.com/codeswithlaila/'},
+         {icon: 'fa-whatsapp', tooltip: 'whatsapp', link: ''},
+         {icon: 'fa-linkedin', tooltip: 'linkedin', link: 'https://www.linkedin.com/in/laila-a-mohamed/'},
+         {icon: 'fa-youtube', tooltip: 'youtube', link: 'https://www.youtube.com/channel/UCrX2sDuOTyhPH2MYgxZGm0w'},
+      ]
    }),
    computed: {
         ...mapState(productsModule, ['categories'])
@@ -125,9 +159,10 @@ export default {
 .gap-16 {
    gap: 16px !important;
 }
-.copyright {
+.copyright, .copyright a {
    color: #444; 
    font-size: 14px;
+   text-decoration: none;
 }
 .text-decoration-none {
    text-decoration: none !important;
@@ -155,6 +190,14 @@ export default {
    border-radius: 50%;
    i {
       color: #f8f8f8 !important;
+   }
+}
+// Media Queries
+@media (max-width: 767px) {
+   .cards-img {
+      img {
+         width: 90%
+      }
    }
 }
 </style>

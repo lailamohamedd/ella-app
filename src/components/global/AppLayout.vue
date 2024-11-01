@@ -1,15 +1,29 @@
 <template>
 <div class="layout">
     <v-layout class="position-relative">
-        <CartDrawer />
-        <MenuDrawer />
-        <v-main :style="`padding-top: ${ $route.name == 'check_out' ? '0px' : windowWidth <= 990 ? '60px' : '150px'}`">
+        <CartDrawer :windowWidth="windowWidth" />
+        <MenuDrawer :windowWidth="windowWidth" />
+        <v-main 
+            :style="`padding-top: ${ 
+                $route.name == 'check_out'
+                    ? '0px' 
+                    : windowWidth <= 990 
+                    ? '60px' 
+                    : '150px'
+                }`"
+            >
             <slot></slot>
         </v-main>
-        <AppNav v-show="$route.name != 'check_out' && !showFixed && windowWidth > 990" />
-        <ResponsiveNav v-show="windowWidth <= 990 && $route.name != 'check_out'" />
-        <FixedNav v-show="$route.name != 'check_out' && showFixed && windowWidth <= 990" />
-        <AppFooter v-show="$route.name != 'check_out' && windowWidth > 990" />
+        <AppNav 
+            v-show="$route.name != 'check_out' && !showFixed && windowWidth > 990" 
+        />
+        <ResponsiveNav 
+            v-show="windowWidth <= 990 && $route.name != 'check_out'" 
+        />
+        <FixedNav 
+            v-show="$route.name != 'check_out' && showFixed && windowWidth > 990" 
+        />
+        <AppFooter v-show="$route.name != 'check_out'" />
     </v-layout>
 </div>
 </template>
@@ -32,7 +46,8 @@ export default {
         MenuDrawer
     },
     data:()=> ({
-        drawer: false,
+        drawer: true,
+        showFixed: false,
         windowWidth: 0
     }),
     mounted() {

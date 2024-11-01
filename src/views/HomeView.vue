@@ -3,24 +3,56 @@
     <UpperBanner />
     <TheFeatures />
     <TopOffers />
-    <ProductsSwiper :products="FlashDeals" title="Flash Deals" titleColor="red" />
+    <ProductsSwiper 
+      :products="FlashDeals" 
+      title="Beauty" 
+      :index="0" 
+      titleColor="red"
+    />
     <TopCategories />
-    <NewProducts :products="newProducts" />
+    <NewProducts :index="0" :products="newProducts" />
     <QualityFeatures />
-    <ProductsSwiper :products="fragrances" title="Top fragrances" titleColor="black" />
+    <ProductsSwiper 
+      :products="fragrances" 
+      :index="1" 
+      title="Top fragrances" 
+      titleColor="black"
+    />
     <v-container fluid>
       <v-row>
         <v-col lg="6" md="6" cols="12" class="pr-lg-5">
-          <img src="@/assets/images/band-left-cover.webp" class="w-100" alt="banner cover image" />
+          <img 
+            src="@/assets/images/band-left-cover.webp" 
+            class="w-100" 
+            alt="banner cover image" 
+          />
         </v-col>
         <v-col lg="6" md="6" cols="12" class="pl-lg-5">
-          <img src="@/assets/images/band-right-cover.webp" class="w-100" alt="banner cover image" />
+          <img 
+            src="@/assets/images/band-right-cover.webp" 
+            class="w-100" 
+            alt="banner cover image" 
+          />
         </v-col>
       </v-row>
     </v-container>
-    <ProductsSwiper :products="furniture" title="Top furniture" titleColor="black" />
-    <img src="@/assets/images/tv-banner.webp" class="w-100" alt="banner image">
-    <ProductsSwiper :products="groceries" title="Top groceries" titleColor="black" />
+    <ProductsSwiper 
+      :products="furniture" 
+      :index="2" 
+      title="Top furniture" 
+      titleColor="black" 
+    />
+    <img 
+      src="@/assets/images/tv-banner.webp" 
+      class="w-100" 
+      alt="banner image"
+    />
+    <ProductsSwiper 
+      :products="groceries" 
+      :index="3" 
+      title="Top groceries" 
+      titleColor="black" 
+    />
     <WhyShopwithus />
   </div>
 </template>

@@ -1,9 +1,18 @@
 <template>
     <div class="checkout">
-        <v-container fluid class="pa-0">
+        <v-container fluid class="pa-0 ma-0">
             <v-row>
-                <v-col class="pa-0" cols="12" lg="7" md="7">
-                    <v-card class="w-100 left-card" color="white" elevation="0">
+                <v-col 
+                    class="pa-0 order-1 order-md-0" 
+                    cols="12" 
+                    lg="7" 
+                    md="6"
+                >
+                    <v-card 
+                        class="w-100 left-card" 
+                        color="white" 
+                        elevation="0"
+                    >
                         <v-card-title class="font-weight-bold py-0">Payment Page</v-card-title>
                         <!-- Start Breadcrumbs -->
                         <v-breadcrumbs :items="['Cart', 'Information']">
@@ -23,15 +32,53 @@
                         </v-card-actions>
                         <!-- End Shop Buttons -->
                          <!-- Start Countries Select -->
-                        <v-card-title class="item-title py-0">Shopping Addresses</v-card-title>
+                        <v-card-title class="item-title mb-3 px-0">Shopping Addresses</v-card-title>
                         <select class="w-100 pa-3 country-select" name="" id="">
                             <option :value="country" v-for="country in countries" :key="country">{{ country }}</option>
                         </select>
                         <!-- End Countries Select -->
+                        <div class="user-name mb-3">
+                            <v-row class="mt-3">
+                                <v-col class="py-0" cols="6" xs="12">
+                                    <input class="pa-3 w-100" type="text" placeholder="First name">
+                                </v-col>
+                                <v-col class="py-0" cols="6" xs="12">
+                                    <input class="pa-3 w-100" type="text" placeholder="Last name">
+                                </v-col>
+                            </v-row>
+                        </div>
+                        <input class="pa-3 my-3 w-100" type="text" placeholder="Address">
+                        <div class="city-parent">
+                            <v-row>
+                                <v-col class="py-0 mt-3" cols="12" lg="4">
+                                    <input class="pa-3 w-100" type="text" placeholder="City">
+                                </v-col>
+                                <v-col class="py-0 mt-3" cols="12" lg="4">
+                                    <select class="w-100 pa-3 country-select" name="" id="">
+                                        <option :value="country" v-for="country in countries" :key="country">{{ country }}</option>
+                                    </select>
+                                </v-col>
+                                <v-col class="py-0 mt-3" cols="12" lg="4">
+                                    <input class="pa-3 w-100" type="text" placeholder="Postal code">
+                                </v-col>
+                            </v-row>
+                        </div>
+                        <!-- Start Submit Button -->
+                        <v-card-actions class="justify-end form-btn mb-12 mt-7 px-0">
+                            <v-btn variant="elevated" @click="dialog= true" class="text-center" width="220" size="large" color="#1677b0">Submit</v-btn>
+                        </v-card-actions>
+                        <!-- End Submit Button -->
+
+                        <v-divider length="100%" color="black"></v-divider>
+                        <v-divider length="100%" color="black"></v-divider>
+
+                        <div class="text-center pt-5 pb-5">
+                            <a class="copyright" target="_blank" href="https://lailamohamedd.github.io/Laila/">Laila Mohamed</a>
+                        </div>
                     </v-card>
                 </v-col>
-                <v-col class="pa-0" cols="12" lg="5" md="5">
-                    <v-card color="grey-lighten-3 right-card" width="100%" elevation="0">
+                <v-col class="pa-0" cols="12" lg="5" md="6">
+                    <v-card color="grey-lighten-3 right-card" height="100%" width="100%" elevation="0">
                         <v-card color="transparent" class="d-flex justify-space-between last-card mb-3 align-center" elevation="0" width="100%" v-for="item in cartItems" :key="item.id">
                             <!-- Start Quantity Badge -->
                             <v-badge :content="item.quantity" color="grey-darken-1">
@@ -63,18 +110,24 @@
                 </v-col>
             </v-row>
         </v-container>
+        <OrderSuccess :popup="dialog" v-if="dialog" @close_popup="dialog = false" />
     </div>
 </template>
 
 <script>
 import { cartStore } from '@/stores/cart'
 import { mapState } from 'pinia';
+import OrderSuccess from '@/components/order_success/OrderSuccess.vue';
 
 export default {
     data(){
         return {
             countries: ["Egypt", "Lebanon", "America", "Seria", "Jordan"], 
+            dialog: false,
         }
+    },
+    components: {
+        OrderSuccess
     },
     computed: {
         ...mapState(cartStore, ["cartItems"]),
@@ -92,39 +145,57 @@ export default {
 }
 </script>
 
-<style scoped>
-.right-card {
-    padding: 60px 120px 0px 40px;
+<style lang="scss" scoped>
+.checkout {
+    width: 100%;
+    overflow: hidden;
+    .right-card {
+        padding: 60px;
+    }
+
+    .left-card {
+        padding: 60px;
+    }
+
+    .last-card:not(:first-of-type) {
+        padding-top: 20px !important;
+    }
+
+    .item-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #484848;
+        white-space: pre-wrap;
+        line-height: 1.2
+    }
+    .country-select, input {
+        border: 1px solid #aaa7a7; 
+        border-radius: 2px; 
+        font-size: 14px;
+    }
+    .item-cat {
+        font-size: 12px;
+        color: #777;
+        white-space: pre-wrap;
+    }
+
+    .item-price {
+        font-size: 12px;
+        color: #4b4a4a;
+    }
+    .copyright {
+        color: #4b4a4a;
+        text-decoration: none !important;
+        font-size: 13px;
+    }
 }
 
-.left-card {
-    padding: 40px 120px 0px 60px;
-}
-
-.last-card:not(:first-of-type) {
-    padding-top: 20px !important;
-}
-
-.item-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #484848;
-    white-space: pre-wrap;
-    line-height: 1.2
-}
-.country-select {
-    border: 1px solid #484848; 
-    border-radius: 2px; 
-    font-size: 14px;
-}
-.item-cat {
-    font-size: 12px;
-    color: #777;
-    white-space: pre-wrap;
-}
-
-.item-price {
-    font-size: 12px;
-    color: #4b4a4a;
+@media(max-width: 992px) {
+    .checkout .right-card,.checkout .left-card {
+        padding: 30px;
+    }
+    .checkout .left-card.form-btn .v-btn {
+        width: 100% !important
+    }
 }
 </style>

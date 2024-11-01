@@ -1,24 +1,42 @@
 <template>
     <div class="app-nav">
-        <v-app-bar color="#02218f" class="pt-3" height="fit-content" absolute>
+        <v-app-bar 
+            color="#02218f" 
+            class="pt-3" 
+            height="fit-content" 
+            absolute
+        >
             <v-container fluid>
                 <v-row>
                     <v-col cols="3">
-                        <img src="@/assets/images/logo.png" @click="$router.push({ name: 'home' })" style="cursor: pointer;" alt="logo" />
+                        <!-- Start Logo -->
+                        <img 
+                            src="@/assets/images/logo.png" 
+                            @click="$router.push({ name: 'home' })" 
+                            class="cursor-pointer" 
+                            alt="logo" 
+                        />
+                        <!-- End Logo -->
                     </v-col>
                     <v-col cols="5">
-                        <div class="position-relative" style="width: 90%;">
+                        <!-- Start Search -->
+                        <div 
+                            class="position-relative" 
+                            style="width: 90%;"
+                        >
                             <input 
-                            type="search" 
-                            class="py-3 w-100 px-5 bg-white" 
-                            name="navSearch" 
-                            id="navSearch"
-                            placeholder="Search the store"
-                            style="border-radius: 30px;">
+                                type="search" 
+                                class="py-3 w-100 px-5 bg-white" 
+                                name="navSearch" 
+                                id="navSearch"
+                                placeholder="Search the store"
+                                style="border-radius: 30px;" />
+
                             <svg data-icon="search" class="cursor-pointer" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);" viewBox="0 0 512 512" width="25">
                                 <path d="M495,466.2L377.2,348.4c29.2-35.6,46.8-81.2,46.8-130.9C424,103.5,331.5,11,217.5,11C103.4,11,11,103.5,11,217.5   S103.4,424,217.5,424c49.7,0,95.2-17.5,130.8-46.7L466.1,495c8,8,20.9,8,28.9,0C503,487.1,503,474.1,495,466.2z M217.5,382.9   C126.2,382.9,52,308.7,52,217.5S126.2,52,217.5,52C308.7,52,383,126.3,383,217.5S308.7,382.9,217.5,382.9z"></path>
                             </svg>
                         </div>
+                        <!-- End Search -->
                     </v-col>
                     <v-col cols="4" class="ps-5">
                         <div class="parent text-white d-flex justify-space-between align-center">
@@ -66,34 +84,58 @@
                 </v-row>
                 <v-row class="mt-6">
                     <v-col cols="7">
+                        <!-- Start Categories Links -->
                         <ul class="links text-white d-flex text-white" style="list-style: none;">
-                            <li class="px-3" v-for="category in categories" :key="category.title">
-                                <router-link :to="{ name: 'products_category', params: { category: category.route, title: category.title } }" style="color: #fff; text-decoration: none;">{{ category.title }}</router-link>
+                            <li 
+                                class="px-3" 
+                                v-for="category in categories" 
+                                :key="category.title"
+                            >
+                                <router-link 
+                                    class="link-cat"
+                                    :to="{ 
+                                        name: 'products_category', 
+                                        query: { 
+                                            category: category.route, 
+                                            title: category.title 
+                                        }, 
+                                    }" 
+                                >
+                                    {{ category.title }}
+                                </router-link>
                             </li>
                         </ul>
+                        <!-- End Categories Links -->
                     </v-col>
                     <v-col class="d-flex justify-end" cols="5" style="gap: 35px;">
                         <div class="help d-flex align-center text-white" style="gap: 5px;">
                             <svg style="width: 20px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-headset" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-user-headset fa-w-14 fa-3x"><path fill="#256ef1" d="M320 352h-23.1a174.08 174.08 0 0 1-145.8 0H128A128 128 0 0 0 0 480a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32 128 128 0 0 0-128-128zM48 224a16 16 0 0 0 16-16v-16c0-88.22 71.78-160 160-160s160 71.78 160 160v16a80.09 80.09 0 0 1-80 80h-32a32 32 0 0 0-32-32h-32a32 32 0 0 0 0 64h96a112.14 112.14 0 0 0 112-112v-16C416 86.13 329.87 0 224 0S32 86.13 32 192v16a16 16 0 0 0 16 16zm160 0h32a64 64 0 0 1 55.41 32H304a48.05 48.05 0 0 0 48-48v-16a128 128 0 0 0-256 0c0 40.42 19.1 76 48.35 99.47-.06-1.17-.35-2.28-.35-3.47a64.07 64.07 0 0 1 64-64z" class=""></path></svg>
                             <span>Help</span>
                         </div>
+                        <!-- Start Languages -->
                         <div class="lang d-flex align-center cursor-pointer" style="gap: 5px;" id="language-btn">
-                             <span v-html="selectedLang[0].icon"></span>
-                             <span>{{ selectedLang[0].lang }} / {{ selectedLang[0].currency }}</span>
-                             <v-icon>mdi-chevron-down</v-icon>
+                            <span v-html="selectedLang[0].icon"></span>
+                            <span>{{ selectedLang[0].lang }} / {{ selectedLang[0].currency }}</span>
+                            <v-icon>mdi-chevron-down</v-icon>
 
-                             <v-menu activator="#language-btn">
-                                <v-list v-model:selected="selectedLang">
-                                    <v-list-item v-for="lang in langs" :key="lang.lang" :value="lang">
+                            <v-menu activator="#language-btn">
+                                <v-list v-model:selected="selectedLang" mandatory>
+                                    <v-list-item 
+                                        v-for="lang in langs" 
+                                        :key="lang.lang" 
+                                        :value="lang"
+                                    >
                                         <v-list-item-title
                                             class="d-flex align-center"
                                             style="gap: 10px;">
                                             <span v-html="lang.icon"></span>
-                                            {{ lang.lang }} / {{ lang.currency }}</v-list-item-title>
+                                            {{ lang.lang }} / {{ lang.currency }}
+                                        </v-list-item-title>
                                     </v-list-item>
                                 </v-list>
-                             </v-menu>
+                            </v-menu>
                        </div>
+                       <!-- End Languages -->
                     </v-col>
                 </v-row>
             </v-container>
@@ -190,6 +232,10 @@ export default {
     animation-name: rubberBand;
     animation-duration: 1s;
     animation-fill-mode: both;
+}
+.link-cat {
+    color: #fff; 
+    text-decoration: none;
 }
 @keyframes rubberBand {
     0% {
