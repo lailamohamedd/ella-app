@@ -1,11 +1,11 @@
 <template>
 <div class="banner">
     <div class="parent">
-        <img 
-            src="@/assets/images/banner-bg.webp" 
+        <!-- <img 
+            src="@/assets/images/banner.jpg" 
             alt="product image"
-        />
-        <div class="cont">
+        /> -->
+        <div class="cont d-flex justify-center text-center align-center flex-column">
             <h3><span>Huge Saving</span> on UHD Television</h3>
             <p class="hint">Sale up to 70% off on selected items*</p>
             <v-btn 
@@ -27,27 +27,33 @@
     .parent {
         height: 390px;
         position: relative;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        background-image: url("@/assets/images/banner.webp" );
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        padding-top: 50px;
+        // img {
+        //     width: 100%;
+        //     height: 100%;
+        //     object-fit: cover;
+        // }
 
         .cont {
             color: #fff;
-            padding: 40px 0 0 100px;
-            position: absolute;
-            left: 40px;
-            top: 20px;
-            width: 600px;
+            padding: 40px;
+            // position: absolute;
+            // left: auto;
+            // top: 20px;
+            margin: 0 auto;
+            width: 60%;
+            background-color: #00000085;
 
             h3 {
                 font-size: 45px;
                 font-weight: 900;
 
                 span {
-                    color: rgb(88, 239, 219);
+                    color: #7aa7d8;
                 }
             }
             .hint {
@@ -61,9 +67,23 @@
     }
 }
 // Media Queries
-@media (max-width: 1024) {
-    .cont {
-            left: -20px;
+// @media (max-width: 1024) {
+//     .cont {
+//             left: -20px;
+//     }
+// }
+@media (max-width: 1415px) and (min-width: 993px) {
+    .banner {
+        .parent {
+            .cont {
+                h3 {
+                   font-size: 35px; 
+                }
+                width: 70%;
+                // width: 500px;
+                // left: -45px;
+            }
+        }
     }
 }
 @media (max-width: 992px) {
@@ -73,8 +93,8 @@
                 h3 {
                    font-size: 35px; 
                 }
-                width: 500px;
-                left: -45px;
+                // width: 500px;
+                // left: -45px;
             }
         }
     }
@@ -83,15 +103,18 @@
     .banner {
         .parent {
             height: 320px;
+            padding-top: 30px;
             .cont {
                 padding-left: 20px;
                 h3 {
                    font-size: 30px; 
                 }
-                width: 500px;
-                left: 0;
+                width: 80%;
+                // left: 0;
+                padding: 20px;
                 .hint {
                     font-size: 14px;
+                    margin: 10px 0;
                 }
             }
         }
@@ -100,6 +123,7 @@
 @media (max-width: 580px) {
     .banner {
         .parent {
+            padding-top: 25px;
             height: 250px;
             .cont {
                 padding-left: 20px;
@@ -107,8 +131,8 @@
                 h3 {
                    font-size: 24px; 
                 }
-                width: 74%;
-                left: 0;
+                width: 90%;
+                // left: 0;
                 .hint {
                     font-size: 12px;
                 }

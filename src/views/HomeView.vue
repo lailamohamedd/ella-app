@@ -7,7 +7,7 @@
       :products="FlashDeals" 
       title="Beauty" 
       :index="0" 
-      titleColor="red"
+      titleColor="#405b86"
     />
     <TopCategories />
     <NewProducts :index="0" :products="newProducts" />
@@ -16,20 +16,20 @@
       :products="fragrances" 
       :index="1" 
       title="Top fragrances" 
-      titleColor="black"
+      titleColor="#405b86"
     />
     <v-container fluid>
       <v-row>
         <v-col lg="6" md="6" cols="12" class="pr-lg-5">
           <img 
-            src="@/assets/images/band-left-cover.webp" 
-            class="w-100" 
+            src="@/assets/images/store-banner1.webp" 
+            class="w-100 store-banner" 
             alt="banner cover image" 
           />
         </v-col>
         <v-col lg="6" md="6" cols="12" class="pl-lg-5">
           <img 
-            src="@/assets/images/band-right-cover.webp" 
+            src="@/assets/images/store-banner2.webp" 
             class="w-100" 
             alt="banner cover image" 
           />
@@ -43,7 +43,7 @@
       titleColor="black" 
     />
     <img 
-      src="@/assets/images/tv-banner.webp" 
+      src="@/assets/images/store-offer1.webp" 
       class="w-100" 
       alt="banner image"
     />
@@ -93,3 +93,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@media (min-width: 992px) {
+  .store-banner {
+    height: 362px;
+  }
+}
+</style>

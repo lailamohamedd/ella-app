@@ -16,7 +16,7 @@
                         v-bind="props"
                     >
                         <img 
-                            src="@/assets/images/playstations.webp" 
+                            src="@/assets/images/store1.webp" 
                             :style="`transition: 0.5s all ease-in-out; height: 100%; scale: ${isHovering ? 1.05 : 1}`" 
                             class="w-100" 
                             alt="Offer Image"
@@ -38,7 +38,7 @@
                         v-bind="props"
                     >
                         <img 
-                            src="@/assets/images/headset.webp" 
+                            src="@/assets/images/store2.webp" 
                             :style="`transition: 0.5s all ease-in-out; height: 100%; scale: ${isHovering ? 1.05 : 1}`" 
                             class="w-100" 
                             alt="Offer Image"
@@ -60,7 +60,7 @@
                         v-bind="props"
                     >
                         <img 
-                            src="@/assets/images/chairs.webp" 
+                            src="@/assets/images/store3.webp" 
                             :style="`transition: 0.5s all ease-in-out; height: 100%; scale: ${isHovering ? 1.05 : 1}`" 
                             class="w-100" 
                             alt="Offer Image"
@@ -77,7 +77,7 @@
                         v-bind="props"
                     >
                         <img 
-                            src="@/assets/images/iphones.webp" 
+                            src="@/assets/images/store4.webp" 
                             :style="`transition: 0.5s all ease-in-out; height: 100%; scale: ${isHovering ? 1.05 : 1}`" 
                             class="w-100" 
                             alt="Offer Image"
@@ -92,7 +92,7 @@
                         v-bind="props"
                     >
                         <img 
-                            src="@/assets/images/laptops.webp" 
+                            src="@/assets/images/store5.webp" 
                             :style="`transition: 0.5s all ease-in-out; height: 100%; scale: ${isHovering ? 1.05 : 1}`" 
                             class="w-100" 
                             alt="Offer Image"

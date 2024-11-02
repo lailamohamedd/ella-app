@@ -2,7 +2,7 @@
 <div class="top_cat">
     <div class="cyber-banner">
         <img 
-            src="@/assets/images/cyber-banner.webp" 
+            src="@/assets/images/main-banner.webp" 
             class="w-100" 
             alt="image category section" 
         />

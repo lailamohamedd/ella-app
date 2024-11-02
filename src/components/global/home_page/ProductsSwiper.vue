@@ -1,7 +1,7 @@
 <template>
 <div class="products-swiper pt-16 pb-5">
     <!-- Start Section Header -->
-    <div class="title px-5 d-flex align-center justify-space-between">
+    <div class="title px-5 mb-4 d-flex align-center justify-space-between">
         <h2 :class="[`text-${titleColor}`]">{{ title }}</h2>
         <router-link class="text-black text-decoration-none"
             :to="{ 
@@ -22,7 +22,7 @@
         <v-row>
             <v-col cols="12" class="pt-14">
                 <v-row>
-                    <v-col cols="3" v-for="num in 4" :key="num">
+                    <v-col cols="4" v-for="num in 5" :key="num">
                         <v-skeleton-loader type="image, article, button"></v-skeleton-loader>
                     </v-col>
                 </v-row>
@@ -211,13 +211,13 @@ export default {
                 slidesPerView: 1,
             },
             580: {
-                slidesPerView: 2,
-            },
-            767: {
                 slidesPerView: 3,
             },
-            990: {
+            767: {
                 slidesPerView: 4,
+            },
+            990: {
+                slidesPerView: 5,
             },
         },
     }),

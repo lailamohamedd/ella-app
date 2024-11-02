@@ -21,7 +21,7 @@
             <!-- Start Skeleton Loader -->
             <v-col cols="12" md="7" class="pt-14" v-if="!products.length">
                 <v-row>
-                    <v-col cols="4" v-for="num in 3" :key="num">
+                    <v-col cols="3" v-for="num in 3" :key="num">
                         <v-skeleton-loader type="image, article, button"></v-skeleton-loader>
                     </v-col>
                 </v-row>
@@ -143,10 +143,9 @@
                 <!-- End Swiper -->
             </v-col>
             <!-- Start banner -->
-            <v-col cols="12" md="5">
+            <v-col class="text-center" cols="12" md="5">
                 <img 
-                    src="@/assets/images/vr-banner.webp" 
-                    class="w-100" 
+                    src="@/assets/images/offer-img.webp" 
                     alt="product image" 
                 />
             </v-col>

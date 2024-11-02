@@ -123,7 +123,7 @@
                                     style="text-transform: none;" 
                                     @click="$router.push({
                                         name: 'product_details', 
-                                        query: { productId: item.id 
+                                        params: { productId: item.id 
                                     }})" 
                                     class="mt-2 px-4"
                                 >
@@ -168,7 +168,7 @@ export default {
             if(this.$route.name == 'products_category') {
                 document.documentElement.scrollTo(0,0);
                 this.loading = true;
-                await this.getProductsByCategory(this.$route.query.category);
+                await this.getProductsByCategory(this.$route.params.category);
                 this.loading = false;
             }
         },

@@ -186,11 +186,14 @@ export default {
 .social-links {
    width: 40px;
    height: 40px;
-   background-color: #686868;
+   background-color: #405b86;
    border-radius: 50%;
    i {
       color: #f8f8f8 !important;
    }
+}
+.social-links:hover {
+   background-color: #516d9a;
 }
 // Media Queries
 @media (max-width: 767px) {

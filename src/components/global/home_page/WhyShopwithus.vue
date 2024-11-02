@@ -9,7 +9,7 @@
                 <v-card 
                     elevation="0" 
                     color="transparent" 
-                    class="text-center text-white"
+                    class="text-center text-black"
                 >
                     <div class="img-parent">
                         <img 
@@ -26,7 +26,7 @@
                 <v-card 
                     elevation="0" 
                     color="transparent" 
-                    class="text-center text-white"
+                    class="text-center text-black"
                 >
                     <div class="img-parent">
                         <img 
@@ -43,7 +43,7 @@
                 <v-card 
                     elevation="0" 
                     color="transparent" 
-                    class="text-center text-white"
+                    class="text-center text-black"
                 >
                     <div class="img-parent">
                         <img 
@@ -60,7 +60,7 @@
                 <v-card 
                     elevation="0" 
                     color="transparent" 
-                    class="text-center text-white"
+                    class="text-center text-black"
                 >
                     <div class="img-parent">
                         <img 
@@ -87,15 +87,15 @@ export default {
 
 <style lang="scss" scoped>
 .shop-withus {
-    background-image: url(@/assets/images/why-shop-with-us-banner.webp);
+    background-image: url(@/assets/images/wl-store.webp);
     background-repeat: repeat-x;
     background-size: cover;
     h2 {
-        color: #fff;
+        color: #000;
         font-size:30px;
         font-weight: 900;
         span {
-            color: rgb(45 251 223)
+            color: #405b86
         }
     }
     .shop-withus-title {
@@ -107,7 +107,7 @@ export default {
       font-size: 15px;
     }
     .learn-more {
-        color: #fff; 
+        color: #000; 
         font-weight: 700; 
         font-size: 14px
     }
